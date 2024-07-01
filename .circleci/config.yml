@@ -1,34 +1,37 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:node:.,deps:python:.
 version: 2.1
-orbs:
-  python: circleci/python@2
+
 jobs:
-  test-python:
-    # Install dependencies and run tests
+  build-and-push:
     docker:
-      - image: cimg/python:3.8-node
+      - image: cimg/python:3.12.3
     steps:
+      - setup_remote_docker
       - checkout
-      - python/install-packages
       - run:
-          name: Run tests
-          command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
-      - store_test_results:
-          path: junit.xml
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
+          name: Login to Azure Container Registry
+          command: docker login -u $AZURE_ACR_USERNAME -p $AZURE_ACR_PASSWORD $AZURE_ACR_LOGIN_SERVER
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Build Docker image
+          command: |
+            docker build -t $CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Tag Docker image
+          command: |
+            docker tag $CIRCLE_PROJECT_REPONAME $AZURE_ACR_LOGIN_SERVER/$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG
+      - run:
+          name: Push Docker image to Azure Container Registry
+          command: |
+            docker push $AZURE_ACR_LOGIN_SERVER/$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG
+
 workflows:
-  build-and-test:
+  version: 2
+  build-and-push-image:
     jobs:
-      - test-python
-    # - deploy:
-    #     requires:
-    #       - test-python
+      - build-and-push:
+          context:
+            - registry
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
