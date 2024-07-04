@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ex-offenders/job-service-v2/compare/v1.0.0...v1.0.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* adding gitignore ([77be7d1](https://github.com/ex-offenders/job-service-v2/commit/77be7d131f1483dbf0476431998b0773a580de48))
+
 ## 1.0.0 (2024-07-01)
 
 
