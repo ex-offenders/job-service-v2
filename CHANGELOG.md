@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/ex-offenders/job-service-v2/compare/v1.1.1...v1.1.2) (2024-07-05)
+
+
+### Bug Fixes
+
+* debug authentication issue ([b7fbcd9](https://github.com/ex-offenders/job-service-v2/commit/b7fbcd97376300fb462a8fc7b5876c8b9f35b4bd))
+
 ## [1.1.1](https://github.com/ex-offenders/job-service-v2/compare/v1.1.0...v1.1.1) (2024-07-05)
 
 
