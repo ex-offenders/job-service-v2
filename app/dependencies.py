@@ -8,9 +8,9 @@ def get_session():
         yield session
 
 def get_user_id_from_token(request: Request) -> str:
-    print(request.method)
-    print(request.url)
-    print(request.headers)
+    print(f"Request method: {request.method}")
+    print(f"Request url: {request.url}")
+    print(f"Request headers: {request.headers}")
     token2 = request.headers.get("Authorization").split("Bearer ")[1]
     print(token2)
     payload2 = jwt.decode(token2, options={"verify_signature": False})
