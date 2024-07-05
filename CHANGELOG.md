@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ex-offenders/job-service-v2/compare/v1.1.0...v1.1.1) (2024-07-05)
+
+
+### Bug Fixes
+
+* pyjwt module ([500b8c9](https://github.com/ex-offenders/job-service-v2/commit/500b8c9c284bf0eff0f98f21fb2bcae5c73e879a))
+
 ## [1.1.0](https://github.com/ex-offenders/job-service-v2/compare/v1.0.1...v1.1.0) (2024-07-05)
 
 
