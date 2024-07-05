@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/ex-offenders/job-service-v2/compare/v1.1.2...v1.1.3) (2024-07-05)
+
+
+### Bug Fixes
+
+* printing headers ([726da1b](https://github.com/ex-offenders/job-service-v2/commit/726da1b80309f89e1013ee2ea16348f22ca03b22))
+
 ## [1.1.2](https://github.com/ex-offenders/job-service-v2/compare/v1.1.1...v1.1.2) (2024-07-05)
 
 
