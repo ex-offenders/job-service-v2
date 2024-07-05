@@ -8,15 +8,6 @@ def get_session():
         yield session
 
 def get_user_id_from_token(request: Request) -> str:
-    print(f"Request method: {request.method}")
-    print(f"Request url: {request.url}")
-    print(f"Request headers: {request.headers}")
-    token2 = request.headers.get("Authorization").split("Bearer ")[1]
-    print(token2)
-    payload2 = jwt.decode(token2, options={"verify_signature": False})
-    user_id2: str = payload2.get("sub")
-    print(payload2)
-    print(user_id2)
     try:
         token = request.headers.get("Authorization").split("Bearer ")[1]
         payload = jwt.decode(token, options={"verify_signature": False})
