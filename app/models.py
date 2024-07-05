@@ -20,15 +20,16 @@ class JobCategoryUpdate(SQLModel):
 class JobBase(SQLModel):
     title: str = Field(min_length=5, max_length=400)
     description: str
-    owner_id: str
     category_id: int | None = Field(gt=0, foreign_key="jobcategory.id")
 
 class Job(JobBase, table=True):
     id: str | None = Field(default=None, primary_key=True)
+    owner_id: str | None = None
     category: JobCategory = Relationship(back_populates="jobs")
 
 class JobPublic(JobBase):
     id: str
+    owner_id: str | None = None
 
 class JobCreate(JobBase):
     pass
