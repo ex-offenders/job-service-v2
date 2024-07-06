@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/ex-offenders/job-service-v2/compare/v1.1.3...v1.1.4) (2024-07-05)
+
+
+### Bug Fixes
+
+* cleanup istio debug steps ([75f2c51](https://github.com/ex-offenders/job-service-v2/commit/75f2c515a3b2f1b178ad150599a5db62f650cb6d))
+
 ## [1.1.3](https://github.com/ex-offenders/job-service-v2/compare/v1.1.2...v1.1.3) (2024-07-05)
 
 
